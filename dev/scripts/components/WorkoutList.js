@@ -9,12 +9,29 @@ class WorkoutList extends React.Component {
             workouts: [],
             workout: "",
             selectedWorkout: [],
+            inputForm: {
+                excercise: "",
+                sets: "",
+                reps: "",
+                weight: "",
+                notes: ""
+            }
         }
         // bind handle change to our app
         this.handleChange = this.handleChange.bind(this);
         this.addWorkout = this.addWorkout.bind(this);
         this.removeWorkout = this.removeWorkout.bind(this);
         this.showExcercise = this.showExcercise.bind(this);
+        this.updateFormFields = this.updateFormFields.bind(this);
+    }
+
+    updateFormFields(field, value) {
+        const { inputForm } = this.state;
+        const newForm = inputForm;
+        newForm[field] = value;
+        this.setState({
+            inputForm: newForm
+        })
     }
 
 
@@ -25,20 +42,28 @@ class WorkoutList extends React.Component {
     }
 
     addWorkout(e) {
+        const { inputForm } = this.state;
         e.preventDefault();
-        // take a copy of our current state
+        // we are making an object below on click
+        // this will allow us to push our content into the excercise array from the form
+        // we want to have our name as a value in here because this is what is going to allow us to have specific objects to hold this information, and allow us to have a home for it.
         const newWorkout = {
             name: this.state.workout,
-            exercies: []
+            exercises: [],
         };
+
+        newWorkout.exercises.push(inputForm);
+
+        console.log(newWorkout);
         
-        
+        // here we are making a variable called workoutState that we can set equal to / create an array that contains the contents of the workouts taken from the workout input
         const workoutState = Array.from(this.state.workouts);
-        // push a new value onto it
-        // this being out workout state (whatever was updated from the handle change workout state/ target value/ input)
-        
+
+        // we can then push the workout state array into our newWorkout one created
         workoutState.push(newWorkout);
         // set the state with the new workout state
+        
+        // set the state of our workouts to workoutState and then set the workout to "" so that it empties after submit
         this.setState({
             workouts: workoutState,
             workout: ""
@@ -57,12 +82,12 @@ class WorkoutList extends React.Component {
     }
 
     showExcercise(index) {
-        console.log(index)
-
         this.setState({
             selectedWorkout: this.state.workouts[index]
         })
     }
+
+
 
     render() {
         return (
@@ -73,7 +98,11 @@ class WorkoutList extends React.Component {
                 </form>
                 <div className="workoutDisplay">
                     <div className="workoutContent">
-                        < ShowExcercise  selectedWorkout={this.state.selectedWorkout}/>
+                        <ShowExcercise
+                            selectedWorkout={this.state.selectedWorkout}
+                            updateFormFields={this.updateFormFields}
+                            addWorkout={this.addWorkout}
+                        />
                     </div>
                 </div>
                 <div className="workoutList">
