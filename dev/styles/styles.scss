@@ -2,46 +2,190 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 .clearfix:after {visibility: hidden; display: block; font-size: 0; content: ''; clear: both; height: 0; }
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
-.wrapper {
+html {
+   font-size: 10px;
+}
+
+body {
+    font-size: 1rem;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 300px;
+}
+
+// create workout
+
+.createWorkout {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 50px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.createWorkout__wrapper--row {
+    display: flex;
+    flex-direction: row;
+}
+
+.createWorkout__button {
+    font-size: 2rem;
+    margin: 0;
+    color: white;
+    background-color: #06a5e9;
+    border: none;
+    min-height: 50px;
+    text-transform: uppercase;
+}
+
+// add excercise
+
+.addExcercise {
+    display: flex;
+    flex-direction: column;
+}
+
+.addExcercise__title {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.addExcercise__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.addExcercise__inputs {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+button.addExcercise__inputs  {
+    color: white;
+    background-color: #63dcff;
+    padding: 10px 0;
+    border: none;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+// header
+
+.workoutAppHeader__imageWrapper {
+    width: 17%;
+    padding-top: 10px;
+}
+
+.workoutAppHeader__imageWrapper img {
+    width: 100%;
+}
+
+.workoutAppHeader {
+    background-color: #06a5e9;
+    text-transform: uppercase;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 300;
+}
+
+.workoutAppHeader__title {
+    color: white;
+    margin: 0 auto;
+    padding: 25px 0;
+    font-size: 4rem;
+}
+
+.workoutAppHeader__wrapper {
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.workoutAppMain__wrapper {
     width: 80%;
     margin: 0 auto;
 }
 
+// create card
 
-// workout list component
-.workoutWrapper{
+.createCard {
     display: flex;
-    justify-content: space-between;
-
-    .workoutList {
-        background-color: white;
-        color: black;
-        border: 1px solid black;
-        width: 25%;
-        display: flex;
-        flex-direction: column;
-
-        div {
-            width: 100%;
-        }
-    }
-
-    .workouts {
-        width: 100%;
-        padding: 5px;
-    }
-
-    .workout {
-        display: flex;
-        justify-content: space-between;
-        list-style: none;
-        
-    }
-
-    .workoutDisplay {
-        display: flex;
-        flex-direction: column;
-
-    }
-
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 10px 20px;
+    width:80%;
+    margin: 20px auto;
 }
+
+.createCard__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: rgb(223, 223, 223);
+}
+
+.createCard__title {
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.createCard__list {
+    list-style: none;
+    padding: 0;
+    font-size: 1.5rem;
+}
+
+.createCard__addExcercise {
+    font-size: 1.8rem;
+}
+
+// submit the workout
+
+.workoutApp__submitWorkout {
+    width: 100%;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: white;
+    background-color: #0471c4;
+    border: none;
+    min-height: 50px;
+    text-transform: uppercase;
+}
+
+// saved workout card
+
+.workoutApp__savedWorkoutCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 100px;
+    justify-content: center;
+    background-color: rgb(223, 223, 223);
+    text-transform: uppercase;
+}
+
+.workoutApp__savedTitle {
+    width: 100%;
+    font-size: 2.2rem;
+    color: white;
+    background-color: #06a5e9;
+    border: none;
+    min-height: 50px;
+    padding-top: 15px;
+    margin: 0;
+    font-weight: 300;
+}
+
+// workout app auth
+
+.workoutAppAuth__wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
