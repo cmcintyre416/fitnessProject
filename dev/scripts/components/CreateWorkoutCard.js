@@ -6,17 +6,19 @@ import moment from 'moment';
 
 const CreateWorkoutCard = (props)=> {
     return (
-        <div className="createCard">
-            <h5>Workout on: {moment().format("MMM Do YY")}</h5>
-            <button onClick={() => props.removeWorkout(props.workout.key)}>𝗫</button>
-            <ul className="createCard__list">
+        <div className="createWorkoutCard">
+            <h5 className="createWorkoutCard__title">Workout : {moment().format("MMM Do YY")}</h5>
+            <div className="createWorkoutCard__button"><button 
+            onClick={() => props.removeWorkout(props.workout.key)}>𝗫</button>
+            </div>
+            <ul className="createWorkoutCard__list">
             {props.workout.map((workoutItem, i) =>{
                 return(
-                <div key={`-${i}`}>
-                    <li className="createWorkoutCard__listItem">Exercise: {workoutItem.name}</li>
-                    <li className="createWorkoutCard__listItem">Sets: {workoutItem.sets}</li>
-                    <li className="createWorkoutCard__listItem">Reps: {workoutItem.reps}</li>
-                    <li className="createWorkoutCard__listItem">Weight: {workoutItem.weight}</li>
+                <div className="createWorkoutCard__listItemWrapper" key={`-${i}`}>
+                    <li className="createWorkoutCard__listItem"><span className="createWorkoutCard__listItem-blue">Exercise: </span> {workoutItem.name}</li>
+                    <li className="createWorkoutCard__listItem"><span className="createWorkoutCard__listItem-blue">Sets: </span> {workoutItem.sets}</li>
+                    <li className="createWorkoutCard__listItem"><span className="createWorkoutCard__listItem-blue"> Reps: </span> {workoutItem.reps}</li>
+                    <li className="createWorkoutCard__listItem"><span className="createWorkoutCard__listItem-blue">Weight: </span> {workoutItem.weight}</li>
                 </div>
                 )
             })}

@@ -95,10 +95,7 @@ class App extends React.Component {
       <div>
         <header className="workoutAppHeader">
           <div className="workoutAppHeader__wrapper">
-            <div className="workoutAppHeader__imageWrapper">
-              <img src="/dev/assets/logo.png" alt=""/>
-            </div>
-            <h1 className="workoutAppHeader__title">Fitness Daily</h1>
+            <h1 className="workoutAppHeader__title">Fi<span><img src="/dev/assets/logo.png" alt="" /></span>ness <span className="workoutAppHeader__title-remove">Daily</span></h1>
           </div>
         </header>
         <main className="workoutAppMain">
