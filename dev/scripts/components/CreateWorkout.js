@@ -64,7 +64,7 @@ class CreateWorkout extends Component {
                     <button className="createWorkout__button" 
                         onClick={() => this.toggleAddExcercise()}
                     >
-                        Add Exercises to your {moment().format("MMM Do")} Workout
+                        Add to your {moment().format("MMM Do")} Workout
                     </button>
                         { addExcerciseButton &&
                             < AddExcercise 
