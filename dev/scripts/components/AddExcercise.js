@@ -34,11 +34,11 @@ class AddExcercise extends Component {
     render() {
         return(
             <div className="addExcercise">
-                <h1 className="addExcercise__title">Add Excercise</h1>
+                <h1 className="addExcercise__title">Add Exercise</h1>
                 <form className="addExcercise__form">
                     <input className="addExcercise__inputs" 
                         type="text"
-                        placeholder="Excercise Name"
+                        placeholder="Exercise Name"
                         onChange={(e)=> this.updateForm('name', e.target.value)}
                     />
                     <input className="addExcercise__inputs"

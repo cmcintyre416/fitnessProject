@@ -24,7 +24,6 @@ class CreateWorkout extends Component {
     }
 
     getExcercisePayload(excercisePayload) {
-        console.log(excercisePayload);
         // get this into the exercises array in the state of this file. 
         const newExcerciseInfo = Array.from(this.state.newWorkout);
         newExcerciseInfo.push(excercisePayload);
@@ -65,7 +64,7 @@ class CreateWorkout extends Component {
                     <button className="createWorkout__button" 
                         onClick={() => this.toggleAddExcercise()}
                     >
-                        Add Excercises to your {moment().format("MMM Do")} Workout
+                        Add Exercises to your {moment().format("MMM Do")} Workout
                     </button>
                         { addExcerciseButton &&
                             < AddExcercise 

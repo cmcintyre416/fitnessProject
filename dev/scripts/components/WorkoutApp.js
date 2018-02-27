@@ -15,32 +15,39 @@ class WorkoutApp extends React.Component {
     componentDidMount() {
         firebase.database().ref().on('value', (res) => {
             console.log(res.val());
+            const userData = res.val();
+            const dataArray = [];
+            for(let objKey in userData) {
+                userData[objKey].key = objKey;
+                dataArray.push(userData[objKey])
+            }
+            this.setState({
+                savedWorkouts: dataArray
+            })
+            console.log(dataArray);
         });
     }
 
     getWorkoutPayload(workoutPayload) {
         // get this into the exercises array in the state of this file.
+        // console.log(workoutPayload) 
         // const newExcerciseInfo = Array.from(this.state.savedWorkouts);
         const dbRef = firebase.database().ref();
-        
-        dbRef.push(this.state.savedWorkouts);
 
+        const newExcerciseInfo = workoutPayload;
+
+        dbRef.push(newExcerciseInfo);
+        
         // this.setState({
         //     savedWorkouts: newExcerciseInfo
         // });
     }
 
-    // getWorkoutPayload(workoutPayload) {
-    //     // get this into the exercises array in the state of this file.
-    //     console.log(workoutPayload) 
-    //     const newExcerciseInfo = Array.from(this.state.savedWorkouts);
-    //     newExcerciseInfo.push(workoutPayload);
-    //     console.log(this.state);
-        
-    //     this.setState({
-    //         savedWorkouts: newExcerciseInfo
-    //     });
-    // }
+    removeWorkout(workoutId) {
+        console.log(workoutId);
+        const dbRef = firebase.database().ref(workoutId);
+        dbRef.remove();
+    }
 
     render() {
 
@@ -57,6 +64,7 @@ class WorkoutApp extends React.Component {
                                 workout={workout}
                                 key={`workout-${i}`}
                                 workoutIndex={i}
+                                removeWorkout={this.removeWorkout}
                                 />
                             )
                         })}

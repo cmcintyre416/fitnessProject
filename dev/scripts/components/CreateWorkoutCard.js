@@ -5,10 +5,10 @@ import moment from 'moment';
 // date: {moment{props.entry.date, "x"}
 
 const CreateWorkoutCard = (props)=> {
-    // console.log(props.workout);
     return (
         <div className="createCard">
             <h5>Workout on: {moment().format("MMM Do YY")}</h5>
+            <button onClick={() => props.removeWorkout(props.workout.key)}>𝗫</button>
             <ul className="createCard__list">
             {props.workout.map((workoutItem, i) =>{
                 return(
